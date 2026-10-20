@@ -1,0 +1,19 @@
+application:
+  environment: development
+  trading_mode: PAPER
+
+ollama:
+  base_url: http://localhost:11434
+  model: qwen3:8b
+
+toss:
+  api_base_url: https://openapi.tossinvest.com
+  websocket_url: wss://openapi-ws.tossinvest.com/ws/v1
+
+market_data:
+  database_path: data/market.db
+  default_symbols:
+    - AAPL
+
+portfolio:
+  initial_cash_usd: 10000

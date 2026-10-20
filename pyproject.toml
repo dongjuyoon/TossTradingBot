@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools==82.0.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-swing-bot"
+version = "0.0.1"
+description = "Paper-only research platform for quantitative and AI-assisted US swing trading"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "httpx==0.28.1",
+  "pydantic==2.14.1",
+  "PyYAML==6.0.3",
+  "SQLAlchemy==2.1.5",
+  "websockets==16.1.1",
+]
+
+[project.optional-dependencies]
+quant = [
+  "exchange-calendars==4.13.2",
+  "numpy==2.5.4",
+  "pandas==3.0.6",
+]
+scheduler = ["APScheduler==3.11.3"]
+ai = [
+  "tradingagents @ git+https://github.com/TauricResearch/TradingAgents.git@v0.7.0",
+]
+dev = [
+  "pytest==9.1.1",
+  "ruff==0.17.1",
+]
+
+[project.scripts]
+ai-swing-bot = "ai_swing_bot.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = ["integration: requires a local or remote external service"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "C4", "SIM"]
