@@ -1,4 +1,4 @@
-# AI Swing Trading Bot
+# TossTradingBot
 
 미국 주식 스윙 전략과 로컬 AI의 추가 가치를 거래비용 차감 후 검증하기 위한 연구용 시스템입니다.
 
